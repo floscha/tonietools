@@ -1,7 +1,6 @@
 FROM python:3.8-alpine
 
-RUN apk update \
-    apk add ffmpeg
+RUN apk --no-cache add ffmpeg
 
 WORKDIR /opt/tonietools
 COPY . .
