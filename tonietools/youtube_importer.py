@@ -57,10 +57,7 @@ def cut_mp3(file_path: str, start: Optional[str] = None, end: Optional[str] = No
 
 
 def import_youtube_video(
-    video_url: str,
-    name: Optional[str] = None,
-    start: Optional[str] = None,
-    end: Optional[str] = None,
+    video_url: str, name: Optional[str] = None, start: Optional[str] = None, end: Optional[str] = None
 ):
     title, file_name = download_youtube_audio(video_url)
     cut_mp3(file_name, start, end)
