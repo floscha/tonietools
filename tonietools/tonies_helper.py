@@ -11,13 +11,7 @@ def get_tonies_api():
     return api
 
 
-def upload(
-    api,
-    file_name,
-    title,
-    household_id: Optional[str] = None,
-    tonie_id: Optional[str] = None,
-):
+def upload(api, file_name, title, household_id: Optional[str] = None, tonie_id: Optional[str] = None):
     (
         api.households[household_id or os.environ["TONIE_HOUSEHOLD"]]
         .creativetonies[tonie_id or os.environ["TONIE_ID"]]
