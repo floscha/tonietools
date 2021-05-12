@@ -5,7 +5,8 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /opt/tonietools
-COPY . .
+COPY tonietools tonietools
+COPY setup.py .
 
 RUN pip install -e .
 
