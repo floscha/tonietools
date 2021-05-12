@@ -1,0 +1,6 @@
+oauthlib
+pydub
+requests
+requests_oauthlib
+typer
+youtube-dl

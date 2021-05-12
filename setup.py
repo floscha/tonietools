@@ -11,14 +11,7 @@ setup(
     author_email='florian.joh.schaefer@gmail.com',
     license='MIT',
     packages=find_packages(),
-    install_requires=[
-        "oauthlib",
-        "pydub",
-        "requests",
-        "requests_oauthlib",
-        "typer",
-        "youtube-dl"
-    ],
+    install_requires=open("requirements.txt", "r").readlines(),
     zip_safe=False,
     entry_points={
         'console_scripts': [
