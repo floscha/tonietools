@@ -2,10 +2,23 @@ from typing import Optional
 
 import typer
 
+from tonietools.tonies_helper import list_households, list_tonies
 from tonietools.youtube_importer import import_youtube_video
 
 
 app = typer.Typer()
+
+
+@app.command()
+def list(
+    what: str,
+):
+    if what == "households":
+        print(list_households())
+    elif what == "tonies":
+        list_tonies()
+    else:
+        raise ValueError()
 
 
 @app.command()
