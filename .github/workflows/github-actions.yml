@@ -19,6 +19,12 @@ jobs:
     - name: Upgrade pip
       run: |
         python -m pip install --upgrade pip
+    - name: Install dev/test dependencies
+      run: |
+        pip install black
+    - name: Run black check
+      run: |
+        black --check tonietools
     - name: Install package including dependencies
       run: |
         pip install -e .
