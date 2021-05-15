@@ -1,4 +1,6 @@
 # :package: TonieTools
+![python package](https://github.com/floscha/tonietools/actions/workflows/github-actions.yml/badge.svg)
+![push to dockerhub](https://github.com/floscha/tonietools/actions/workflows/push-to-dockerhub.yml/badge.svg)
 
 ## Usage
 
