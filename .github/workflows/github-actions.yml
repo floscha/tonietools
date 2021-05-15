@@ -21,10 +21,13 @@ jobs:
         python -m pip install --upgrade pip
     - name: Install dev/test dependencies
       run: |
-        pip install black
+        pip install black mypy
     - name: Run black check
       run: |
         black --check tonietools
+    - name: Run mypy
+      run: |
+        mypy --ignore-missing-imports tonietools
     - name: Install package including dependencies
       run: |
         pip install -e .
