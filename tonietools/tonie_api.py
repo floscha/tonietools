@@ -1,6 +1,6 @@
 # From https://raw.githubusercontent.com/moritzj29/tonie_api/master/tonie_api/api.py
 import logging
-from typing import Optional
+from typing import Optional  # noqa: W0611
 
 import requests
 from requests.exceptions import HTTPError
