@@ -1,5 +1,6 @@
 # From https://raw.githubusercontent.com/moritzj29/tonie_api/master/tonie_api/api.py
 import logging
+from typing import Optional
 
 import requests
 from requests.exceptions import HTTPError
@@ -70,7 +71,7 @@ class _TonieAPIBase:
     """
 
     # to be patched by inherited classes
-    API_URL = None
+    API_URL = None  # type: Optional[str]
     session = None
 
     def _updater(self, r, storedict, itemclass):
