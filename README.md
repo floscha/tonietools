@@ -13,7 +13,7 @@ Then, run the following command to see how the CLI works:
 
 ```bash
 docker run --rm --env-file .env --name tonietools tonietools --help
-``
+```
 
 This assumes that you use a *.env* file containing the environmental variables as listed in the following template:
 ```
