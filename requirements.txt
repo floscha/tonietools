@@ -1,6 +1,8 @@
+fastapi
 oauthlib
 pydub
 requests
 requests_oauthlib
 typer
+uvicorn
 youtube-dl
