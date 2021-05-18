@@ -14,6 +14,7 @@ app = FastAPI()
 @app.get("/", response_class=HTMLResponse)
 async def root():
     import os
+
     cwd = os.getcwd()
     print(cwd)
     return HTMLResponse(open("static/index.html", "r").read())
@@ -35,6 +36,7 @@ async def youtube(videos: List[Video]):
 
 def run_server(host="0.0.0.0", port=8000):
     uvicorn.run(app, host=host, port=port)
+
 
 if __name__ == "__main__":
     run_server()
