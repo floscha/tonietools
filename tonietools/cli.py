@@ -2,6 +2,7 @@ from typing import Optional
 
 import typer
 
+from tonietools.server import run_server
 from tonietools.tonies_helper import list_households, list_tonies
 from tonietools.youtube_importer import import_youtube_video
 
@@ -29,6 +30,11 @@ def youtube(
     end: Optional[str] = None,
 ):
     import_youtube_video(video_url, name, start, end)
+
+
+@app.command()
+def server():
+    run_server()
 
 
 if __name__ == "__main__":
