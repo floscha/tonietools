@@ -9,9 +9,11 @@ WORKDIR /opt/tonietools
 COPY requirements.txt .
 RUN pip install -r requirements.txt
 
+COPY static static
 COPY tonietools tonietools
 COPY setup.py .
 
 RUN pip install -e .
 
 ENTRYPOINT [ "tonietools" ]
+CMD [ "server" ]
