@@ -10,10 +10,15 @@ docker build . -t tonietools
 ```
 
 Then, run the following command to see how the CLI works:
-
 ```bash
-docker run --rm --env-file .env --name tonietools tonietools --help
+docker run --rm --name tonietools --env-file .env tonietools --help
 ```
+
+To start the web server, run
+```bash
+docker run --rm --name tonietools -p 8000:8000 --env-file .env tonietools
+```
+The web UI can then be accessed under [localhost:8000](localhost:8000).
 
 This assumes that you use a *.env* file containing the environmental variables as listed in the following template:
 ```
