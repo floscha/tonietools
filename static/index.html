@@ -23,10 +23,20 @@
 		<div class="card">
 			<div class="card-header">Select YouTube Videos</div>
 			<div class="card-body">
-				<video-row v-for="video in youtubeVideos" v-bind:url="video.url" :delete-fn="deleteVideo" :key="video.url"></video-row>
+				<video-row v-for="video in youtubeVideos" v-bind:video="video" :delete-fn="deleteVideo" :key="video.url"></video-row>
 				<div class="row g-2">
 					<div class="col-auto">
-						<input type="text" class="form-control" v-model:value="newVideoUrl"> </div>
+						<input type="text" class="form-control" v-model:value="newVideoUrl">
+					</div>
+					<div class="col-auto">
+						<input type="text" class="form-control" v-model:value="newVideoTitle" placeholder="Title">
+					</div>
+					<div class="col-auto">
+						<input type="text" class="form-control" v-model:value="newVideoStart" placeholder="Start">
+					</div>
+					<div class="col-auto">
+						<input type="text" class="form-control" v-model:value="newVideoEnd" placeholder="End">
+					</div>
 					<div class="col-auto">
 						<button v-on:click="addVideo" type="button" class="btn btn-success">Add</button>
 					</div>
@@ -43,12 +53,21 @@
 	<script>
 	Vue.component('video-row', {
 		props: {
-			url: String,
+			video: Object,
 			deleteFn: Function
 		},
 		template: `<div class="row g-2">
     <div class="col-auto">
-      <input type="text" class="form-control" :value="url">
+      <input type="text" class="form-control" :value="video.url">
+    </div>
+    <div class="col-auto">
+      <input type="text" class="form-control" :value="video.title">
+    </div>
+    <div class="col-auto">
+      <input type="text" class="form-control" :value="video.start">
+    </div>
+    <div class="col-auto">
+      <input type="text" class="form-control" :value="video.end">
     </div>
     <div class="col-auto">
       <button v-on:click="deleteFn(url)" class="btn mb-3">🗑</button>
@@ -59,22 +78,34 @@
 		el: '#app',
 		data: {
 			newVideoUrl: 'https://youtube.com/',
+			newVideoTitle: '',
+			newVideoStart: '',
+			newVideoEnd: '',
 			youtubeVideos: [],
 			response: ''
 		},
 		methods: {
 			addVideo: function() {
 				this.youtubeVideos.push({
-					url: this.newVideoUrl
+					url: this.newVideoUrl,
+					title: this.newVideoTitle,
+					start: this.newVideoStart,
+					end: this.newVideoEnd
 				});
 				this.newVideoUrl = 'https://youtube.com/';
+				this.newVideoTitle = '';
+				this.newVideoStart = '';
+				this.newVideoEnd = '';
 			},
 			deleteVideo: function(url) {
 				this.youtubeVideos = this.youtubeVideos.filter((video) => video.url !== url);
 			},
 			upload: function() {
 				const data = this.youtubeVideos.map((video) => ({
-					url: video.url
+					url: video.url,
+					name: video.title ? video.title : undefined,
+					start: video.start ? video.start : undefined,
+					end: video.end ? video.end : undefined
 				}));
 				axios.post('/youtube', data).then(response => this.response = response.data);
 			}
