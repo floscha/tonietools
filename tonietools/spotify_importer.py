@@ -1,3 +1,4 @@
+import os
 from pathlib import Path
 
 from spotdl.download.downloader import DownloadManager
@@ -11,11 +12,15 @@ from spotdl.search.utils import (
 from tonietools.tonies_helper import get_tonies_api, upload
 
 
+DEFAULT_SPOTIFY_ID = "5f573c9620494bae87890c0f08a60293"
+DEFAULT_SPOTIFY_SECRET = "212476d9b0f3472eaa762d90b19b0ba8"
+
+
 def download(request: str):
     # From https://github.com/spotDL/spotify-downloader/blob/master/spotdl/__main__.py
     SpotifyClient.init(
-        client_id="5f573c9620494bae87890c0f08a60293",
-        client_secret="212476d9b0f3472eaa762d90b19b0ba8",
+        client_id=os.environ.get("SPOTIFY_ID", DEFAULT_SPOTIFY_ID),
+        client_secret=os.environ.get("SPOTIFY_SECRET", DEFAULT_SPOTIFY_SECRET),
         user_auth={},
     )
 
