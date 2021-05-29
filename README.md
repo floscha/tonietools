@@ -1,6 +1,8 @@
 # :package: TonieTools
 ![python package](https://github.com/floscha/tonietools/actions/workflows/github-actions.yml/badge.svg)
 ![push to dockerhub](https://github.com/floscha/tonietools/actions/workflows/push-to-dockerhub.yml/badge.svg)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+![License](https://img.shields.io/github/license/mashape/apistatus.svg)
 
 ## Usage
 
