@@ -29,13 +29,16 @@
 						<input type="text" class="form-control" v-model:value="newVideoUrl">
 					</div>
 					<div class="col-auto">
-						<input type="text" class="form-control" v-model:value="newVideoTitle" placeholder="Title">
+						<input type="text" class="form-control" style="width: 200px;"
+						 v-model:value="newVideoTitle" placeholder="Title">
 					</div>
 					<div class="col-auto">
-						<input type="text" class="form-control" v-model:value="newVideoStart" placeholder="Start">
+						<input type="text" class="form-control" style="width: 80px;"
+						 v-model:value="newVideoStart" placeholder="Start">
 					</div>
 					<div class="col-auto">
-						<input type="text" class="form-control" v-model:value="newVideoEnd" placeholder="End">
+						<input type="text" class="form-control" style="width: 80px;"
+						 v-model:value="newVideoEnd" placeholder="End">
 					</div>
 					<div class="col-auto">
 						<button v-on:click="addVideo" type="button" class="btn btn-success">Add</button>
