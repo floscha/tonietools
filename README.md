@@ -8,15 +8,14 @@
 
 ### Docker
 
-
-Then, run the following command to see how the CLI works:
+Run the following command to see how the CLI works:
 ```bash
-docker run --rm --name tonietools --env-file .env tonietools --help
+docker run --rm --name tonietools --env-file .env floscha/tonietools --help
 ```
 
 To start the web server, run
 ```bash
-docker run --rm --name tonietools -p 8000:8000 --env-file .env tonietools
+docker run --rm --name tonietools -p 8000:8000 --env-file .env floscha/tonietools
 ```
 The web UI can then be accessed under [localhost:8000](localhost:8000).
 
