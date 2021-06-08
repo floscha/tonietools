@@ -6,10 +6,8 @@
 
 ## Usage
 
-First, build the provided Docker image:
-```bash
-docker build . -t tonietools
-```
+### Docker
+
 
 Then, run the following command to see how the CLI works:
 ```bash
@@ -31,3 +29,18 @@ TONIE_ID=<creative-tonie-id>
 ```
 
 Alternatively, you can add environmental variables to the `docker run` command individually as `-e TONIE_MAIL=<your-mail-adress>`. 
+
+
+## Development
+
+### Docker
+
+Build the provided Docker image like so:
+```bash
+docker build . -t tonietools
+```
+
+Start a bash session in the Docker container:
+```bash
+docker run --rm -it --entrypoint /bin/bash --env-file .env --name tonietools tonietools
+```
