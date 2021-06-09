@@ -8,14 +8,14 @@
 
 ### Docker
 
-Run the following command to see how the CLI works:
+Then, run the following command to see how the CLI works:
 ```bash
-docker run --rm --name tonietools --env-file .env floscha/tonietools --help
+docker run --rm --name tonietools --env-file .env tonietools --help
 ```
 
 To start the web server, run
 ```bash
-docker run --rm --name tonietools -p 8000:8000 --env-file .env floscha/tonietools
+docker run --rm --name tonietools -p 8000:8000 --env-file .env tonietools
 ```
 The web UI can then be accessed under [localhost:8000](localhost:8000).
 
@@ -42,4 +42,19 @@ docker build . -t tonietools
 Start a bash session in the Docker container:
 ```bash
 docker run --rm -it --entrypoint /bin/bash --env-file .env --name tonietools tonietools
+```
+
+### No Docker
+
+Install FFmpeg:
+- OSX: `brew install ffmpeg`
+- Ubuntu: `apt-get install ffmpeg`
+
+Setup a new virtual environment and install dependencies:
+```bash
+python -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip
+python -m pip install -r requirements-dev.txt
+python -m pip install -e .
 ```
