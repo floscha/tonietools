@@ -30,7 +30,13 @@ TONIE_HOUSEHOLD=<tonies-household-id>
 TONIE_ID=<creative-tonie-id>
 ```
 
-Alternatively, you can add environmental variables to the `docker run` command individually as `-e TONIE_MAIL=<your-mail-adress>`. 
+Alternatively, you can add environmental variables to the `docker run` command individually as `-e TONIE_MAIL=<your-mail-adress>`.
+
+### CLI
+
+#### Spotify
+
+`tonietools spotify <song-album-or-playlist-id>`
 
 
 ## Development
