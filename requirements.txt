@@ -3,7 +3,7 @@ oauthlib
 pydub
 requests
 requests_oauthlib
-spotdl
+spotdl==v3.6.0
 typer
 uvicorn
 youtube-dl
