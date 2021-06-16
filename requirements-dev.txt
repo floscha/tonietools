@@ -1,5 +1,5 @@
-black
-mypy
-pre-commit
-pylama
-types-requests
+black==21.5b2
+mypy==0.901
+pre-commit==2.13.0
+pylama==7.7.1
+types-requests==0.1.9
