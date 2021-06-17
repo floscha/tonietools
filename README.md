@@ -68,4 +68,6 @@ python -m pip install -r requirements-dev.txt
 python -m pip install -e .
 ```
 
-When planning to commit to GitHub, activate pre-commit using `pre-commit install`.
+When planning to commit to GitHub, activate pre-commit with `pre-commit install`.
+
+To run the pre-commit hooks, use `pre-commit run --all-files`.
