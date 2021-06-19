@@ -5,6 +5,7 @@ A handy tool to import songs from Spotify and YouTube to your Creative Tonie usi
 ![python package](https://github.com/floscha/tonietools/actions/workflows/github-actions.yml/badge.svg)
 ![push to dockerhub](https://github.com/floscha/tonietools/actions/workflows/push-to-dockerhub.yml/badge.svg)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 ![License](https://img.shields.io/github/license/mashape/apistatus.svg)
 
 ## Usage
