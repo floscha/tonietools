@@ -1,5 +1,6 @@
 from typing import List, Union
 
+import eyed3
 import youtube_dl
 from youtubesearchpython import VideosSearch
 
@@ -37,6 +38,12 @@ class YouTube:
                 result = ydl.extract_info(url, download=False)
                 title, file_name = result["title"], f"{result['id']}.mp3"
                 downloaded_tracks[title] = file_name
+
                 ydl.download([url])
+
+                # Set title in mp3 tags
+                track = eyed3.load(file_name)
+                track.tag.title = title
+                track.tag.save()
 
         return downloaded_tracks
