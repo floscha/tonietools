@@ -2,8 +2,7 @@ import os
 from typing import List, Optional, Union
 
 import eyed3
-
-from tonietools.tonies_api import TonieAPI
+from tonie_api import TonieAPI
 
 
 class Tonies:

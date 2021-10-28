@@ -3,10 +3,9 @@ import logging
 from typing import Optional  # noqa: W0611
 
 import requests
-from requests.exceptions import HTTPError
 from oauthlib.oauth2 import LegacyApplicationClient
+from requests.exceptions import HTTPError
 from requests_oauthlib import OAuth2Session
-
 
 log = logging.getLogger(__name__)
 log.addHandler(logging.NullHandler())
