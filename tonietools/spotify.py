@@ -1,6 +1,7 @@
 import os
-from typing import List
+from typing import List, Union
 
+import eyed3
 from spotdl.download.downloader import DownloadManager
 from spotdl.search import song_gatherer
 from spotdl.search.spotify_client import SpotifyClient
@@ -33,16 +34,33 @@ class Spotify:
         ]
         return [_marshal_search_result(r) for r in results]
 
-    def download(self, request: str):
-        with DownloadManager() as downloader:
-            if "open.spotify.com" in request and "track" in request:
-                song = song_gatherer.from_spotify_url(request)
-                downloader.download_single_song(song)
+    def download(self, urls: Union[str, List[str]]):
+        downloaded_tracks = {}
 
-            elif "open.spotify.com" in request and "album" in request:
-                songObjList = song_gatherer.from_album(request)
-                downloader.download_multiple_songs(songObjList)
+        for url in urls:
+            with DownloadManager() as downloader:
+                if "open.spotify.com" in url and "track" in url:
+                    song = song_gatherer.from_spotify_url(url)
+                    downloader.download_single_song(song)
 
-            elif "open.spotify.com" in request and "playlist" in request:
-                songObjList = song_gatherer.from_playlist(request)
-                downloader.download_multiple_songs(songObjList)
+                    # Set title in mp3 tags
+                    new_title = f"{song.contributing_artists[0]} - {song.song_name}"
+                    track_file_name = f"{new_title}.mp3"
+                    track = eyed3.load(track_file_name)
+                    track.tag.title = new_title
+                    track.tag.save()
+
+                    downloaded_tracks[new_title] = track_file_name
+
+                elif "open.spotify.com" in url and "album" in url:
+                    raise NotImplementedError("Albums are not supported at the moment")
+                    # songObjList = song_gatherer.from_album(url)
+                    # downloader.download_multiple_songs(songObjList)
+                elif "open.spotify.com" in url and "playlist" in url:
+                    raise NotImplementedError(
+                        "Playlists are not supported at the moment"
+                    )
+                    # songObjList = song_gatherer.from_playlist(url)
+                    # downloader.download_multiple_songs(songObjList)
+
+        return downloaded_tracks
